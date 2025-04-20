@@ -44,5 +44,5 @@ var valuePairLookup = [4]bytePair{
 
 func bytePairAtPosition(position uint, value BitPair) (byte, byte) {
 	bytePair := valuePairLookup[value]
-	return bytePair.lhs << byte(position), bytePair.rhs << byte(position)
+	return bytePair.lhs << byte(7-position), bytePair.rhs << byte(7-position)
 }

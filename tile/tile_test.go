@@ -113,7 +113,7 @@ func Test_tileRendersComplexTile(t *testing.T) {
 		{3, 3, 3, 3, 3, 3, 3, 3},
 	}
 
-	expectedResponse := [16]byte{0, 0, 170, 0, 255, 0, 85, 170, 0, 255, 170, 255, 255, 255, 255, 255}
+	expectedResponse := [16]byte{0, 0, 85, 0, 255, 0, 170, 85, 0, 255, 85, 255, 255, 255, 255, 255}
 
 	actualResponse := darkGreySample.ConvertToBinary()
 
@@ -135,7 +135,7 @@ func Test_tileRendersSmileyFaceTile(t *testing.T) {
 		{0, 0, 1, 1, 1, 1, 0, 0},
 	}
 
-	expectedResponse := [16]byte{0, 0, 0, 0, 6, 0, 6, 0, 102, 0, 0, 0, 102, 0, 60, 0}
+	expectedResponse := [16]byte{0, 0, 0, 0, 96, 0, 96, 0, 102, 0, 0, 0, 102, 0, 60, 0}
 
 	actualResponse := smileyFaceSample.ConvertToBinary()
 
