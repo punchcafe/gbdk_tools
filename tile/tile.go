@@ -1,5 +1,7 @@
 package tile
 
+import "errors"
+
 // 0 - 3
 const TILE_WIDTH = 8
 const TILE_HEIGHT = 8
@@ -28,6 +30,19 @@ func (t *Tile) ConvertToBinary() [TILE_SIZE_BYTES]byte {
 		byteIndex += 2
 	}
 	return out
+}
+
+func FromBytePairArray(array [TILE_HEIGHT * TILE_WIDTH]BitPair) (*Tile, error) {
+	var tile Tile
+	for i, bitPair := range array {
+		if bitPair > 3 {
+			return nil, errors.New("Invalid value in bitpair: maximum value is 3")
+		}
+		rowNum := i % TILE_WIDTH
+		columnNum := i / TILE_HEIGHT
+		tile[rowNum][columnNum] = bitPair
+	}
+	return &tile, nil
 }
 
 type bytePair struct {
